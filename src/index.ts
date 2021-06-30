@@ -1,12 +1,11 @@
-interface GenericType {
-  A: string;
-  B: number;
-}
+import { Socket } from 'socket.io';
+import initializeEvents from './events';
+import socketInstance from './socket';
 
-const object: GenericType = {
-  A: 'foo',
-  B: 2,
-};
+socketInstance.on('connection', (socket: Socket) => {
+  // ...
+});
 
-console.log(object);
-console.log('Start developing your NodeTS application');
+initializeEvents();
+
+socketInstance.listen(3000);
